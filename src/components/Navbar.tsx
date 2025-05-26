@@ -58,9 +58,9 @@ export default function Navbar() {
             {newsletterDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-48 rounded-md shadow-lg bg-card border border-border animate-fade-in">
                 <div className="py-2 rounded-md">
-                  <a href="/public/HQFINALfinalfinal_compressed.pdf" target="_blank" className="block px-4 py-2 hover:bg-muted hover:text-foreground transition-colors">February 2024</a>
-                  <a href="/public/September_Newsletter.pdf" target="_blank" className="block px-4 py-2 hover:bg-muted hover:text-foreground transition-colors">September 2024</a>
-                  <a href="/public/Netflix Newsletter Final.pdf" target="_blank" className="block px-4 py-2 hover:bg-muted hover:text-foreground transition-colors">May 2025</a>
+                  <a href="/HQFINALfinalfinal_compressed.pdf" target="_blank" className="block px-4 py-2 hover:bg-muted hover:text-foreground transition-colors">February 2024</a>
+                  <a href="/September_Newsletter.pdf" target="_blank" className="block px-4 py-2 hover:bg-muted hover:text-foreground transition-colors">September 2024</a>
+                  <a href="/Netflix Newsletter Final.pdf" target="_blank" className="block px-4 py-2 hover:bg-muted hover:text-foreground transition-colors">May 2025</a>
                 </div>
               </div>
             )}
