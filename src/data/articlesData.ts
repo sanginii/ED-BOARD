@@ -11,49 +11,49 @@ export interface Article {
 export const articles: Article[] = [
   {
     id: 1,
-    title: "Campus Life During Festival Season",
-    excerpt: "Exploring the vibrant atmosphere and activities during MIT's biggest cultural festivals.",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
+    title: "At the Student Plaza",
+    excerpt: "Sometimes it's a Band, and sometimes a Dance Crew— but you can say for sure that there's always something happening at the Plaza.",
+    image: "/Articles/1.jpg",
     url: "#",
     size: "big"
   },
   {
     id: 2,
-    title: "Interview with Alumni Innovators",
-    excerpt: "Graduates share their journey after MIT.",
-    image: "https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3",
+    title: "The Sky Calls, and we Answer",
+    excerpt: "The workshops are where you build dreams, and the sky, where you find them taking you.",
+    image: "/Articles/2.jpg",
     url: "#",
     size: "small"
   },
   {
     id: 3,
-    title: "Tech Trends of 2024",
-    excerpt: "The latest innovations from student projects.",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
+    title: "Student of the Year might not be Real— but, this is",
+    excerpt: "The dance floor is where you find yourself, with your shining shoes and popping moves.",
+    image: "/Articles/3.jpg",
     url: "#",
     size: "small"
   },
   {
     id: 4,
-    title: "A Day in the Life of an MIT Student",
-    excerpt: "From sunrise to sunset - the typical day.",
-    image: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
+    title: "Colour-Colour, which Colour do you choose?",
+    excerpt: "Still waiting to take off your jacket and put on your magic wings? Get your glitter and colours ready!",
+    image: "/Articles/4.jpg",
     url: "#",
     size: "small"
   },
   {
     id: 5,
-    title: "Sports at MIT: Beyond Academics",
-    excerpt: "Exploring athletic achievements on campus.",
-    image: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
+    title: "Andaz Apna Apna!",
+    excerpt: "Do you hear that? Bollywood's calling. Maybe being dramatic will finally pay off!",
+    image: "/Articles/5.jpg",
     url: "#",
     size: "small"
   },
   {
     id: 6,
-    title: "The Future of AI: Transforming Industries",
-    excerpt: "An in-depth look at how AI is revolutionizing various sectors.",
-    image: "https://cdn.prod.website-files.com/61845f7929f5aa517ebab941/6440f9477c2a321f0dd6ab61_How%20Artificial%20Intelligence%20(AI)%20Is%20Used%20In%20Biometrics.jpg",
+    title: "These are the Days you will Remember.",
+    excerpt: "Living through your 'Good Old Days' in the smallest moments. Stop and smile, you're going to remember this.",
+    image: "/Articles/6.jpg",
     url: "#",
     size: "small"
   }

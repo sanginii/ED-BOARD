@@ -4,10 +4,10 @@ const ArtsAndGraphicsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const artworks = [
-    '/Manipal.jpg',
-    '/Manipal.jpg',
-    '/Manipal.jpg',
-    '/Manipal.jpg'
+    '/ANG/ANG1.jpg',
+    '/ANG/ANG2.jpg',
+    '/ANG/ANG3.jpg',
+    '/ANG/ANG4.jpg'
   ];
 
   useEffect(() => {
