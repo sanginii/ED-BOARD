@@ -52,13 +52,6 @@ export const teamMembers: TeamMember[] = [
     department: "Conceptual Team"
   },
   {
-    name: "Bhavyaa Agarwal",
-    position: "Conceptual Head",
-    image: "/Team/Bhavyaa.png",
-    quote: "Creativity is intelligence having fun.",
-    department: "Conceptual Team"
-  },
-  {
     name: "Diya Nisar",
     position: "Head of Content Creation",
     image: "/Team/Diya.png",
