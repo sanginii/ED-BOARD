@@ -119,7 +119,7 @@ export default function Navbar() {
                 {newsletterDropdownOpen && (
                   <div className="mt-4 space-y-3">
                     <a 
-                      href="/public/HQFINALfinalfinal_compressed.pdf" 
+                      href="/HQFINALfinalfinal_compressed.pdf" 
                       target="_blank" 
                       className="block text-foreground/80 hover:text-foreground transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
@@ -127,7 +127,7 @@ export default function Navbar() {
                       February 2024
                     </a>
                     <a 
-                      href="/public/September_Newsletter.pdf" 
+                      href="/September_Newsletter.pdf" 
                       target="_blank" 
                       className="block text-foreground/80 hover:text-foreground transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
@@ -135,7 +135,7 @@ export default function Navbar() {
                       September 2024
                     </a>
                     <a 
-                      href="/public/Netflix Newsletter Final.pdf" 
+                      href="/Netflix Newsletter Final.pdf" 
                       target="_blank" 
                       className="block text-foreground/80 hover:text-foreground transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
