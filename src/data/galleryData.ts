@@ -61,19 +61,19 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: 9,
-    src: "public/Meenakshi/PHOTO-2025-05-26-21-15-21.jpg",
+    src: "/Meenakshi/PHOTO-2025-05-26-21-15-21.jpg",
     photographer: "Meenakshi",
     alt: "Manipal",
   },
   {
     id: 10,
-    src: "public/Anirudh/PHOTO-2025-05-26-21-18-18.jpg",
+    src: "/Anirudh/PHOTO-2025-05-26-21-18-18.jpg",
     photographer: "Anirudh Maddodi",
     alt: "Revels",
   },
   {
     id: 11,
-    src: "public/Rashii/PHOTO-2025-05-26-21-17-14.jpg",
+    src: "/Rashii/PHOTO-2025-05-26-21-17-14.jpg",
     photographer: "Rashii",
     alt: "Student Plaza",
   },
