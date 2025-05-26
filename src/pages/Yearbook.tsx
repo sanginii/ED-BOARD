@@ -3,6 +3,7 @@ import { BookOpen, Download, Calendar } from 'lucide-react';
 import YearbookCard from '@/components/YearbookCard';
 import Navbar from '@/components/Navbar';
 import { yearbooksData } from '@/data/YearbookData';
+import Footer from '@/components/Footer';
 
 const Yearbook = () => {
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
@@ -142,6 +143,7 @@ const Yearbook = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };
