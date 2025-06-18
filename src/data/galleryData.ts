@@ -12,46 +12,46 @@ export const galleryImages: GalleryImage[] = [
     id: 1,
     src: "/Achinya/IMG_9510.jpeg",
     photographer: "Achintya Singh",
-    alt: "Campus Main Building",
+    alt: "Student Project",
     span: "both"
   },
   {
     id: 2,
     src: "/IMG_5953-Enhanced-NR.jpg",
-    photographer: "Priya Gupta",
+    photographer: "Vivek Kumar",
     alt: "Student Festival",
   },
   {
     id: 3,
     src: "/Archita/_MG_7532-Enhanced-NR.jpg",
-    photographer: "Som Jain",
-    alt: "Library Interior",
+    photographer: "Archita",
+    alt: "Group Dance",
     span: "row"
   },
   {
     id: 4,
     src: "/Archita/ILC00174-Enhanced-NR.jpg",
-    photographer: "Kshitij Sohoni",
-    alt: "Engineering Project",
+    photographer: "Archita",
+    alt: "Open Mic",
   },
   {
     id: 5,
     src: "/Archita/ILC00690.jpg",
-    photographer: "Aditya Karigar",
-    alt: "Campus Event",
+    photographer: "Archita",
+    alt: "Fashion Show",
     span: "col"
   },
   {
     id: 6,
     src: "/Archita/ILC00753.jpg",
-    photographer: "Som Jain",
-    alt: "Students Collaboration",
+    photographer: "Archita",
+    alt: "Chords & Co event",
   },
   {
     id: 7,
     src: "/Archita/ILC06671.jpg",
-    photographer: "Saptashwa Mondal",
-    alt: "Graduation Ceremony",
+    photographer: "Archita",
+    alt: "Nukkad Natak",
   },
   {
     id: 8,
@@ -74,7 +74,7 @@ export const galleryImages: GalleryImage[] = [
   {
     id: 11,
     src: "/Rashii/PHOTO-2025-05-26-21-17-14.jpg",
-    photographer: "Rashii",
+    photographer: "Rashii Singh",
     alt: "Student Plaza",
   },
 ];
