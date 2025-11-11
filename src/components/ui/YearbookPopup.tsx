@@ -5,7 +5,7 @@ export default function YearbookPopup() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setOpen(true), 6500);
+    const timer = setTimeout(() => setOpen(true), 4500);
     return () => clearTimeout(timer);
   }, []);
 
