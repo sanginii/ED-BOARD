@@ -5,8 +5,7 @@ export default function YearbookPopup() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    // show popup after 800ms
-    const timer = setTimeout(() => setOpen(true), 7500);
+    const timer = setTimeout(() => setOpen(true), 6500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -22,7 +21,7 @@ export default function YearbookPopup() {
 
       {/* Modal */}
       <div className="relative z-[101] w-[92%] max-w-md rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800/95 to-slate-900 border border-white/15 p-6 shadow-xl animate-in fade-in zoom-in duration-200">
-        
+
         {/* Close Button */}
         <button
           onClick={() => setOpen(false)}
@@ -46,9 +45,9 @@ export default function YearbookPopup() {
           Check out our newly launched yearbook filled with memories and highlights!
         </p>
 
-        {/* CTA */}
+        {/* ✅ Normal link for React/Vite */}
         <a
-          href="#"
+          href="/Yearbook"
           onClick={() => setOpen(false)}
           className="w-full inline-flex items-center justify-center gap-2 bg-white rounded-full px-5 py-3 font-medium text-slate-900 hover:bg-blue-100 transition"
         >
@@ -56,7 +55,7 @@ export default function YearbookPopup() {
           View Yearbook
         </a>
 
-        {/* Secondary action */}
+        {/* Maybe later */}
         <button
           onClick={() => setOpen(false)}
           className="w-full text-xs text-white/60 mt-3 hover:text-white/80 transition"
