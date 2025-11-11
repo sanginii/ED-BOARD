@@ -11,7 +11,7 @@ import ArtsAndGraphicsSection from '@/components/ArtsAndGraphicsSection';
 import ContactSection from '@/components/ContactSection';
 
 import { motion } from 'framer-motion';
-
+import YearbookPopup from "@/components/ui/YearbookPopup";
 const Index = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
   
@@ -103,6 +103,8 @@ const Index = () => {
 
   return (
     <>
+    {/* ✅ Yearbook Popup here */}
+      <YearbookPopup />
       {/* Custom cursor */}
       <div 
         className={`custom-cursor ${customCursor.hover ? 'hover' : ''}`} 

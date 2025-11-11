@@ -37,7 +37,7 @@ export default function Hero({ aboutRef }: HeroProps) {
       {/* Overlay gradient for better text visibility */}
       <div className="absolute inset-0 bg-gradient-to-b z-[1]"></div>
       
-      {/* Content overlay */}
+      {/* Content overlay */} 
       <div className="relative z-10 text-center max-w-5xl mx-auto px-2 xs:px-3 sm:px-6 md:px-8 pt-1 xs:pt-2 sm:pt-6 md:pt-8 pb-4 xs:pb-6 sm:pb-12 md:pb-16">
         <h1 className="heading-1 mb-2 xs:mb-3 sm:mb-6 md:mb-8 text-white">
           <span className="typing-container">

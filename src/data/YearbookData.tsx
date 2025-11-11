@@ -15,7 +15,7 @@ export interface YearbookData {
       title: 'MIT Yearbook 2018-19',
       description: 'A journey through memories, achievements, and milestones of the academic year 2018-19.',
       coverImage: '/yearbookpic/2018-19.png',
-      pdfUrl: 'https://libportal.manipal.edu/MIT/Magazines/2018-19.pdf',
+      pdfUrl: 'https://drive.google.com/file/d/1MIa_mQg3C-oGjBX3Zi9c4EbCzspgk6nd/view?usp=sharing',
       pages: 303,
       theme: 'Ilios'
     },
