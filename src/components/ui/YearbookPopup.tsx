@@ -46,14 +46,14 @@ export default function YearbookPopup() {
         </p>
 
         {/* ✅ Normal link for React/Vite */}
-        <a
-          href="https://mitedboard.com/yearbook"
-          onClick={() => setOpen(false)}
-          className="w-full inline-flex items-center justify-center gap-2 bg-white rounded-full px-5 py-3 font-medium text-slate-900 hover:bg-blue-100 transition"
-        >
-          <BookOpen className="h-5 w-5" />
-          View Yearbook
-        </a>
+       <a
+  href="/yearbook"
+  onClick={() => setOpen(false)}
+  className="w-full inline-flex items-center justify-center gap-2 bg-white rounded-full px-5 py-3 font-medium text-slate-900 hover:bg-blue-100 transition"
+>
+  <BookOpen className="h-5 w-5" />
+  View Yearbook
+</a>
 
         {/* Maybe later */}
         <button
