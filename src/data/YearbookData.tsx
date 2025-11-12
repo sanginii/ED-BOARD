@@ -11,6 +11,15 @@ export interface YearbookData {
   
   export const yearbooksData: YearbookData[] = [
     {
+    year: '2024-25',
+    title: 'MIT Yearbook 2024-25',
+    description: 'Showcasing the highlights, memories, and achievements of the academic year 2024-25.',
+    coverImage: '/yearbookpic/2024-25.png',
+    pdfUrl: 'https://learnermanipal-my.sharepoint.com/:b:/g/personal/editorialboard_mit_manipal_edu/Edxl_A-QR1lHkAYBaenh2goB19HZamU-lcU9RDIBgx83ww?e=hXhSHA',
+    pages: 153, 
+    theme: 'Metamorphosis'
+    },
+    {
       year: '2018-19',
       title: 'MIT Yearbook 2018-19',
       description: 'A journey through memories, achievements, and milestones of the academic year 2018-19.',
