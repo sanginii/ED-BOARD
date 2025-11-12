@@ -17,7 +17,7 @@ export interface YearbookData {
     coverImage: '/yearbookpic/2024-25.png',
     pdfUrl: 'https://learnermanipal-my.sharepoint.com/:b:/g/personal/editorialboard_mit_manipal_edu/Edxl_A-QR1lHkAYBaenh2goB19HZamU-lcU9RDIBgx83ww?e=hXhSHA',
     pages: 153, 
-    theme: 'Metamorphosis'
+    theme: 'Reverie'
     },
     {
       year: '2018-19',
