@@ -31,10 +31,12 @@ const Yearbook = () => {
     : yearbooksData;
 
   return (
-    <div className="min-h-screen bg-background">
+    // <div className="min-h-screen bg-background">
+    <div className="min-h-screen relative">
+
       <Navbar />
       
-      {/* Animated Background */}
+      {/* Animated Background
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 opacity-10">
           {[...Array(50)].map((_, i) => (
@@ -50,7 +52,22 @@ const Yearbook = () => {
             />
           ))}
         </div>
-      </div>
+      </div> */}
+
+        {/* Background Photo with Deep Blue Overlay */}
+        <div aria-hidden className="fixed inset-0 z-0 pointer-events-none">
+        {/* Base background image (15% opacity) */}
+        <div
+        className="absolute inset-0 bg-center bg-cover opacity-80"
+        style={{ backgroundImage: "url('/photo.png')" }}
+        />
+        {/* Deep dark-blue overlay */}
+       <div
+      className="absolute inset-0"
+        style={{ backgroundColor: '#00001c', opacity: 0.6 }}
+        />
+        </div>
+
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 appear-on-scroll">
