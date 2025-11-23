@@ -15,7 +15,7 @@ export interface YearbookData {
     title: 'MIT Yearbook 2024-25',
     description: 'Showcasing the highlights, memories, and achievements of the academic year 2024-25.',
     coverImage: '/yearbookpic/2024-25.png',
-    pdfUrl: 'https://learnermanipal-my.sharepoint.com/:b:/g/personal/editorialboard_mit_manipal_edu/EaRrdShUwydNidOqcJIIpL0B3zIqxjhyG4PwXjP7BA52xw?e=E9OjHj',
+    pdfUrl: 'https://learnermanipal-my.sharepoint.com/:b:/g/personal/editorialboard_mit_manipal_edu/Eba12PE8J5pErlf1gnbZ3GcBgrlj2OXNThXlwPGk43gVTA?e=XcsVol',
     pages: 153, 
     theme: 'Reverie'
     },
