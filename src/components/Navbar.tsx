@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { ChevronDown, X, Menu } from "lucide-react";
 import McFormsBanner from "./McFormsBanner";
 
+const APPLY_URL =
+  "https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1"; // change to your real form link
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -83,6 +86,7 @@ export default function Navbar() {
                     <a
                       href="/HQFINALfinalfinal_compressed.pdf"
                       target="_blank"
+                      rel="noreferrer"
                       className="block px-4 py-2 hover:bg-muted transition-colors"
                     >
                       February 2024
@@ -90,6 +94,7 @@ export default function Navbar() {
                     <a
                       href="/September_Newsletter.pdf"
                       target="_blank"
+                      rel="noreferrer"
                       className="block px-4 py-2 hover:bg-muted transition-colors"
                     >
                       September 2024
@@ -97,6 +102,7 @@ export default function Navbar() {
                     <a
                       href="/Netflix Newsletter Final.pdf"
                       target="_blank"
+                      rel="noreferrer"
                       className="block px-4 py-2 hover:bg-muted transition-colors"
                     >
                       May 2025
@@ -116,14 +122,13 @@ export default function Navbar() {
               Contact us
             </Link>
 
+            {/* DESKTOP APPLY BUTTON – hyperlinked */}
             <a
               id="apply-button"
-              href="/apply"
+              href={APPLY_URL}
+              target="_blank"
+              rel="noreferrer"
               className="bg-edboard-accent text-white font-medium px-5 py-2 rounded-md shadow-md hover:shadow-lg transition-all hover:-translate-y-1"
-              onClick={(e) => {
-                e.preventDefault();
-                alert("Sorry form closed for now!");
-              }}
             >
               Apply
             </a>
@@ -131,7 +136,7 @@ export default function Navbar() {
         </div>
 
         {/* ===== MC FORMS BANNER ===== */}
-        <McFormsBanner />
+        <McFormsBanner applyUrl={APPLY_URL} />
       </div>
 
       {/* ===== MOBILE MENU ===== */}
@@ -160,6 +165,17 @@ export default function Navbar() {
             <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
               Contact us
             </Link>
+
+            {/* MOBILE APPLY BUTTON – also hyperlinked */}
+            <a
+              href={APPLY_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="bg-edboard-accent text-white font-semibold px-6 py-3 rounded-md shadow-md hover:shadow-lg transition-all"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Apply
+            </a>
           </div>
         </div>
       )}
