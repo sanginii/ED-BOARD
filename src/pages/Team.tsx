@@ -35,7 +35,7 @@ const Team = () => {
           <section className="mb-16 appear-on-scroll">
             <div className="relative overflow-hidden rounded-xl shadow-xl">
               <img 
-                src="/TeamImage.jpeg" 
+                src="/Board26.jpeg" 
                 alt="MIT Editorial Board Team" 
                 className="w-full h-[400px] md:h-[500px] object-cover object-center"
               />
