@@ -140,45 +140,76 @@ export default function Navbar() {
       </div>
 
       {/* ===== MOBILE MENU ===== */}
-      {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-background/95 backdrop-blur-md z-40">
-          <button
-            className="absolute top-4 right-4 p-2"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <X className="h-6 w-6" />
-          </button>
+        {mobileMenuOpen && (
+          <div className="md:hidden fixed inset-0 z-40 bg-black/60 backdrop-blur-md">
+            {/* This wrapper accounts for the fixed navbar */}
+            <div className="pt-24 min-h-[100dvh] flex items-center justify-center px-4">
+              <div className="relative w-full max-w-sm rounded-2xl bg-card border border-border shadow-xl px-6 py-8">
+                {/* Close button */}
+                <button
+                  className="absolute top-4 right-4 p-2 text-foreground/80 hover:text-foreground"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <X className="h-6 w-6" />
+                </button>
 
-          <div className="flex flex-col items-center justify-center min-h-screen gap-8">
-            <Link to="/" onClick={() => setMobileMenuOpen(false)}>
-              Home
-            </Link>
-            <Link to="/team" onClick={() => setMobileMenuOpen(false)}>
-              Team
-            </Link>
-            <Link to="/yearbook" onClick={() => setMobileMenuOpen(false)}>
-              Yearbook
-            </Link>
-            <Link to="/gallery" onClick={() => setMobileMenuOpen(false)}>
-              Gallery
-            </Link>
-            <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-              Contact us
-            </Link>
+                <div className="mt-4 flex flex-col items-stretch gap-4">
+                  <Link
+                    to="/"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full text-center text-lg font-medium py-2 rounded-lg hover:bg-muted transition-colors"
+                  >
+                    Home
+                  </Link>
 
-            {/* MOBILE APPLY BUTTON – also hyperlinked */}
-            <a
-              href={APPLY_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="bg-edboard-accent text-white font-semibold px-6 py-3 rounded-md shadow-md hover:shadow-lg transition-all"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Apply
-            </a>
+                  <Link
+                    to="/team"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full text-center text-lg font-medium py-2 rounded-lg hover:bg-muted transition-colors"
+                  >
+                    Team
+                  </Link>
+
+                  <Link
+                    to="/yearbook"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full text-center text-lg font-medium py-2 rounded-lg hover:bg-muted transition-colors"
+                  >
+                    Yearbook
+                  </Link>
+
+                  <Link
+                    to="/gallery"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full text-center text-lg font-medium py-2 rounded-lg hover:bg-muted transition-colors"
+                  >
+                    Gallery
+                  </Link>
+
+                  <Link
+                    to="/contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full text-center text-lg font-medium py-2 rounded-lg hover:bg-muted transition-colors"
+                  >
+                    Contact us
+                  </Link>
+
+                  {/* Apply button */}
+                  <a
+                    href={APPLY_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="mt-2 w-full text-center bg-edboard-accent text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all"
+                  >
+                    Apply
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+
     </header>
   );
 }
