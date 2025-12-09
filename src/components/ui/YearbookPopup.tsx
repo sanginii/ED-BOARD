@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { X, Sparkles, BookOpen } from "lucide-react";
 
-const FORM_URL = "https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1";
+const FORM_URL = "https://forms.gle/JERbVnUw7TcXXA478";
 
 // ⬇️ CONFIG — change these only
 const INITIAL_DELAY = 4_500;  // ms → first appearance

@@ -4,7 +4,7 @@ import { ChevronDown, X, Menu } from "lucide-react";
 import McFormsBanner from "./McFormsBanner";
 
 const APPLY_URL =
-  "https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1"; // change to your real form link
+  "https://forms.gle/JERbVnUw7TcXXA478"; // change to your real form link
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

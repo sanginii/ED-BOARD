@@ -1,7 +1,7 @@
 // src/components/McFormsBanner.tsx
 import { ArrowUpRight } from "lucide-react";
 
-const APPLY_URL = "https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1"; // ← put your real form URL here
+const APPLY_URL = "https://forms.gle/JERbVnUw7TcXXA478"; // ← put your real form URL here
 
 export default function McFormsBanner() {
   const handleClick = () => {
