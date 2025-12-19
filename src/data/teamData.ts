@@ -28,7 +28,7 @@ export const teamMembers: TeamMember[] = [
     position: "Team Manager",
     image: "/Team_25/Rashi.png", 
     quote: "We're gonna stop feeling sorry for ourselves, its not attractive",
-    department: "Executive Board"
+    department: "Advisory Board"
   },
   {
     name: "Suhail Malik",
