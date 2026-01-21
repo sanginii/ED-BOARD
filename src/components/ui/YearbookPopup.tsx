@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { X, Sparkles, BookOpen } from "lucide-react";
 
-const FORM_URL = "https://forms.gle/JERbVnUw7TcXXA478";
+const FORM_URL = "https://forms.gle/sArbt8gRsbtpXda86";
 
 // ⬇️ CONFIG — change these only
 const INITIAL_DELAY = 4_500;  // ms → first appearance
@@ -67,13 +67,13 @@ export default function ManagementCommitteePopup() {
             <Sparkles className="h-5 w-5 text-white" />
           </div>
           <h3 className="text-xl font-semibold text-white">
-            Management Committee Forms Open!
+            Working Committee Forms Open!
           </h3>
         </div>
 
         {/* Text */}
         <p className="text-sm text-white/80 mb-5">
-          Applications for the EdBoard Management Committee are now open.
+          Applications for the EdBoard Working Committee are now open.
         </p>
 
         {/* CTA */}

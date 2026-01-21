@@ -114,13 +114,13 @@ export const teamMembers: TeamMember[] = [
     quote: "All my red flags are heart shaped",
     department: "Operations"
   },
-  {
-    name: "Rashi Singh Rawat",
-    position: "Team Manager",
-    image: "/Team_25/Rashi.png", 
-    quote: "We're gonna stop feeling sorry for ourselves, its not attractive",
-    department: "Advisory Board"
-  },
+ // {
+   // name: "Rashi Singh Rawat",
+   // position: "Team Manager",
+   // image: "/Team_25/Rashi.png", 
+   // quote: "We're gonna stop feeling sorry for ourselves, its not attractive",
+   // department: "Advisory Board"
+  //},
   // {
   //   name: "Anoushka Bhattacharya",
   //   position: "Head of Admin and HR",

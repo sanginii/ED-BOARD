@@ -1,7 +1,7 @@
 // src/components/McFormsBanner.tsx
 import { ArrowUpRight } from "lucide-react";
 
-const APPLY_URL = "https://forms.gle/JERbVnUw7TcXXA478"; // ← put your real form URL here
+const APPLY_URL = "https://forms.gle/sArbt8gRsbtpXda86"; // ← put your real form URL here
 
 export default function McFormsBanner() {
   const handleClick = () => {
@@ -30,7 +30,7 @@ export default function McFormsBanner() {
           <div className="flex items-center justify-between rounded-2xl bg-slate-950/90 px-4 py-3">
             <div className="flex flex-col">
               <span className="text-xs font-semibold text-sky-50">
-                MC forms now open
+                Working Committee forms now open
               </span>
               <span className="text-[11px] text-slate-200/80">
                 Tap below to submit your application.
