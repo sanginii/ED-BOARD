@@ -17,12 +17,10 @@ export default function Hero() {
 
     if (prefersReduced) return;
 
-    // Targets (updated by events), then smoothly lerp in rAF
-    let targetX = 0; // -1..1
-    let targetY = 0; // -1..1
-    let targetS = 0; // scroll 0..1
+    let targetX = 0;
+    let targetY = 0;
+    let targetS = 0;
 
-    // Current smoothed values
     let curX = 0;
     let curY = 0;
     let curS = 0;
@@ -33,31 +31,26 @@ export default function Hero() {
     const onMouseMove = (e: MouseEvent) => {
       const w = window.innerWidth || 1;
       const h = window.innerHeight || 1;
-      targetX = ((e.clientX / w) - 0.5) * 2; // -1..1
-      targetY = ((e.clientY / h) - 0.5) * 2; // -1..1
+      targetX = ((e.clientX / w) - 0.5) * 2;
+      targetY = ((e.clientY / h) - 0.5) * 2;
     };
 
     const onScroll = () => {
-      // only care about hero region; keep subtle
       const s = window.scrollY || 0;
       targetS = clamp(s / 700, 0, 1);
     };
 
     const tick = () => {
-      // smooth
       curX += (targetX - curX) * 0.06;
       curY += (targetY - curY) * 0.06;
       curS += (targetS - curS) * 0.08;
 
-      // translate limits (px)
       const max = 14;
       const tx = clamp(curX * max, -max, max);
       const ty = clamp(curY * max, -max, max);
 
-      // tiny scroll drift (mostly vertical), keeps it “alive”
-      const sy = curS * 10; // px
+      const sy = curS * 10;
 
-      // scale slightly so parallax never shows edges
       el.style.transform = `translate3d(${tx}px, ${ty + sy}px, 0) scale(1.07)`;
 
       rafRef.current = requestAnimationFrame(tick);
@@ -77,8 +70,13 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] md:min-h-screen overflow-hidden bg-black">
-      {/* keyframes (kept local so you don’t need to touch tailwind.config) */}
+    <section
+      className="
+        relative overflow-hidden bg-black
+        min-h-[100svh] md:min-h-screen
+        pt-24 md:pt-28
+      "
+    >
       <style>{`
         @keyframes heroSweep {
           0%   { transform: translate3d(-40%, 0, 0) rotate(12deg); opacity: 0.0; }
@@ -119,24 +117,22 @@ export default function Hero() {
           backgroundSize: "cover",
           backgroundPosition: "55% center",
           backgroundRepeat: "no-repeat",
-          transform: "scale(1.07)", // fallback if JS disabled
+          transform: "scale(1.07)",
         }}
         aria-hidden
       />
 
-      {/* Base darkening (keep it cinematic, not crushed) */}
+      {/* Base darkening */}
       <div className="absolute inset-0 bg-black/55" aria-hidden />
 
       {/* Vignette */}
       <div
         className="absolute inset-0"
-        style={{
-          boxShadow: "inset 0 0 190px rgba(0,0,0,0.88)",
-        }}
+        style={{ boxShadow: "inset 0 0 190px rgba(0,0,0,0.88)" }}
         aria-hidden
       />
 
-      {/* Projector “light sweep” */}
+      {/* Projector sweep */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
         <div
           className="absolute -inset-y-1/2 left-0 w-[55%]"
@@ -150,7 +146,7 @@ export default function Hero() {
         />
       </div>
 
-      {/* Grain overlay */}
+      {/* Grain */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -163,7 +159,7 @@ export default function Hero() {
         aria-hidden
       />
 
-      {/* Dust / specks overlay */}
+      {/* Dust */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -179,25 +175,27 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-[1200px] px-4 text-center">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-6rem)] md:min-h-[calc(100vh-7rem)] max-w-7xl flex-col items-center justify-center px-4 text-center">
         <h1
           className="
             font-['Cinzel']
             text-[#E3D5B3]
             uppercase
-            leading-none
+            leading-[0.9]
             mx-auto
+            max-w-6xl
 
-            text-[clamp(2.1rem,8.5vw,6.2rem)]
+            text-[clamp(2.2rem,7vw,6.2rem)]
             tracking-[0.07em]
             sm:tracking-[0.10em]
 
             whitespace-normal
-            sm:whitespace-nowrap
+            break-words
 
             opacity-0
             [animation:fadeUp_1.0s_ease-out_forwards]
           "
+          style={{ textWrap: "balance" }}
         >
           MIT EDITORIAL BOARD
         </h1>
@@ -209,7 +207,7 @@ export default function Hero() {
             text-[#C2B59B]
             max-w-2xl
             mx-auto
-            text-[clamp(0.95rem,3.5vw,1.25rem)]
+            text-[clamp(0.95rem,3.0vw,1.25rem)]
             opacity-0
             [animation:fadeUp_1.0s_ease-out_forwards]
             [animation-delay:0.25s]
@@ -234,17 +232,14 @@ export default function Hero() {
             className="
               w-full sm:w-auto
               max-w-[260px]
-
               px-8 sm:px-10
               py-3
               rounded-md
-
               border-2 border-[#E3D5B3]/50
               bg-black/20
               text-[#E3D5B3]
               font-['Playfair_Display']
               text-base sm:text-lg
-
               shadow-[0_10px_30px_rgba(0,0,0,0.45)]
               hover:border-[#E3D5B3]/85 hover:bg-black/30
               transition
@@ -260,17 +255,14 @@ export default function Hero() {
             className="
               w-full sm:w-auto
               max-w-[260px]
-
               px-8 sm:px-10
               py-3
               rounded-md
-
               border-2 border-[#E3D5B3]/50
               bg-black/20
               text-[#E3D5B3]
               font-['Playfair_Display']
               text-base sm:text-lg
-
               shadow-[0_10px_30px_rgba(0,0,0,0.45)]
               hover:border-[#E3D5B3]/85 hover:bg-black/30
               transition
