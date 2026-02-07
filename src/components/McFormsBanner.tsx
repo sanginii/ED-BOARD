@@ -1,45 +1,46 @@
-// src/components/McFormsBanner.tsx
 import { ArrowUpRight } from "lucide-react";
 
-const APPLY_URL = "https://forms.gle/sArbt8gRsbtpXda86"; // ← put your real form URL here
+type Props = {
+  applyUrl?: string;
+};
 
-export default function McFormsBanner() {
+const DEFAULT_APPLY_URL = "https://forms.gle/sArbt8gRsbtpXda86";
+
+export default function McFormsBanner({ applyUrl = DEFAULT_APPLY_URL }: Props) {
   const handleClick = () => {
-    window.open(APPLY_URL, "_blank", "noopener,noreferrer");
+    window.open(applyUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
     <>
-      {/* DESKTOP: pill under Apply button (right side) */}
       <div className="hidden md:block">
         <div className="container mx-auto px-4 mt-2 flex justify-end">
           <button
             onClick={handleClick}
-            className="inline-flex items-center gap-2 rounded-full bg-slate-900/80 border border-sky-400/50 px-5 py-2 text-sm font-medium text-sky-100 shadow-lg shadow-sky-500/25 hover:bg-slate-900 hover:border-sky-300 transition-colors"
+            className="inline-flex items-center gap-2 rounded-full bg-black/60 backdrop-blur-md border border-[#E3D5B3]/35 px-5 py-2 text-sm text-[#E3D5B3] shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:bg-black/70 hover:border-[#E3D5B3]/60 transition font-['Playfair_Display']"
           >
-            <span className="h-2 w-2 rounded-full bg-sky-400 shadow-[0_0_10px_rgba(56,189,248,0.9)]" />
-            <span>Forms now open</span>
+            <span className="h-2 w-2 rounded-full bg-[#E3D5B3] shadow-[0_0_10px_rgba(227,213,179,0.55)]" />
+            <span className="tracking-wide">Forms now open</span>
             <ArrowUpRight className="h-4 w-4" />
           </button>
         </div>
       </div>
 
-      {/* MOBILE: full-width gradient bar with text + button */}
-      <div className="md:hidden px-4 mt-3">
-        <div className="rounded-2xl bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 p-[1px] shadow-lg shadow-sky-500/40">
-          <div className="flex items-center justify-between rounded-2xl bg-slate-950/90 px-4 py-3">
+      <div className="hidden px-4 mt-3">
+        <div className="rounded-2xl bg-black/70 backdrop-blur-md border border-[#E3D5B3]/30 shadow-[0_10px_30px_rgba(0,0,0,0.35)] px-4 py-3">
+          <div className="flex items-center justify-between gap-3">
             <div className="flex flex-col">
-              <span className="text-xs font-semibold text-sky-50">
+              <span className="text-xs text-[#E3D5B3] font-['Cinzel'] tracking-wide uppercase">
                 Working Committee forms now open
               </span>
-              <span className="text-[11px] text-slate-200/80">
+              <span className="text-[11px] text-[#C2B59B] font-['Playfair_Display']">
                 Tap below to submit your application.
               </span>
             </div>
 
             <button
               onClick={handleClick}
-              className="ml-3 inline-flex items-center gap-1 rounded-full bg-sky-300 px-3 py-1.5 text-[11px] font-semibold text-slate-900 shadow-md hover:bg-sky-200 transition-colors"
+              className="shrink-0 inline-flex items-center gap-1 rounded-full border-2 border-[#E3D5B3]/50 bg-black/25 text-[#E3D5B3] font-['Playfair_Display'] px-3 py-1.5 text-[11px] font-semibold hover:border-[#E3D5B3]/85 hover:bg-black/35 transition"
             >
               <span>Apply</span>
               <ArrowUpRight className="h-3 w-3" />

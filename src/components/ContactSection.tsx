@@ -1,134 +1,190 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const ContactSection = () => {
-    const [formData, setFormData] = useState({
-      Name: '',
-      Email: '',
-      Idea: ''
-    });
-  
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      const { name, value } = e.target;
-      setFormData(prev => ({ ...prev, [name]: value }));
+  const [formData, setFormData] = useState({
+    Name: "",
+    Email: "",
+    Idea: "",
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const payload = {
+      name: formData.Name.trim(),
+      email: formData.Email.trim(),
+      idea: formData.Idea.trim(),
     };
-  
-    const handleSubmit = async (e: React.FormEvent) => {
-      e.preventDefault();
-  
-      const payload = {
-        name: formData.Name.trim(),
-        email: formData.Email.trim(),
-        idea: formData.Idea.trim(),
-      };
-  
-      console.log('📤 Sending payload:', payload);
-  
-      try {
-        const response = await fetch(
-          'https://script.google.com/macros/s/AKfycby8UvSFJQNg4VZEEOqyvi-KXkJqiNqCIHxBDTvOYcr12AjiHL5oarMcTMgyF7wUiDWi/exec',
-          {
-            method: 'POST',
-            mode: 'no-cors', // Add this to handle CORS
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(payload),
-          }
-        );
-  
-        // Since we're using no-cors, we can't access the response
-        alert('Thank you for sharing your idea! We will get back to you soon.');
-        setFormData({ Name: '', Email: '', Idea: '' });
-      } catch (error) {
-        console.error('❌ Error submitting form:', error);
-        alert('Sorry, there was an error submitting your idea. Please try again later.');
-      }
-    };
-  
+
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycby8UvSFJQNg4VZEEOqyvi-KXkJqiNqCIHxBDTvOYcr12AjiHL5oarMcTMgyF7wUiDWi/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      alert("Thank you for sharing your idea! We will get back to you soon.");
+      setFormData({ Name: "", Email: "", Idea: "" });
+    } catch (error) {
+      console.error("❌ Error submitting form:", error);
+      alert(
+        "Sorry, there was an error submitting your idea. Please try again later."
+      );
+    }
+  };
+
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-black text-[#C2B59B] relative overflow-hidden">
+      {/* vignette */}
+      <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_220px_rgba(0,0,0,0.9)]" />
+
+      <div className="container mx-auto px-6 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Engaging Content */}
+          {/* Left side */}
           <div className="appear-on-scroll space-y-6">
-            <h2 className="text-3xl font-bold mb-6">
-              <span className="fancy-underline">Join Our Creative Journey</span>
+            <h2 className="font-['Cinzel'] text-[#E3D5B3] uppercase tracking-[0.08em] text-3xl md:text-4xl">
+              Join Our Creative Journey
             </h2>
-            <p className="text-foreground/80 text-lg">
-              Be part of MIT Editorial Board - the creative hub behind MIT's official yearbook, newsletters, and social media presence. We're looking for passionate storytellers, designers, and content creators.
+
+            <p className="font-['Playfair_Display'] text-[#C2B59B] text-lg leading-relaxed">
+              Be part of MIT Editorial Board — the creative hub behind MIT&apos;s
+              official yearbook, newsletters, and social media presence. We&apos;re
+              looking for passionate storytellers, designers, and content creators.
             </p>
-            <div className="space-y-4">
+
+            <div className="space-y-4 font-['Playfair_Display'] text-[#C2B59B]">
               <div className="flex items-start space-x-3">
-                <span className="text-edboard-accent text-2xl">✦</span>
-                <p className="text-foreground/80">Create content for MIT's official yearbook and newsletters</p>
+                <span className="text-[#E3D5B3] text-xl">✦</span>
+                <p>Create content for MIT&apos;s official yearbook and newsletters</p>
               </div>
+
               <div className="flex items-start space-x-3">
-                <span className="text-edboard-accent text-2xl">✦</span>
-                <p className="text-foreground/80">Shape engaging social media narratives for the institute</p>
+                <span className="text-[#E3D5B3] text-xl">✦</span>
+                <p>Shape engaging social media narratives for the institute</p>
               </div>
+
               <div className="flex items-start space-x-3">
-                <span className="text-edboard-accent text-2xl">✦</span>
-                <p className="text-foreground/80">Document and preserve MIT's memorable moments</p>
+                <span className="text-[#E3D5B3] text-xl">✦</span>
+                <p>Document and preserve MIT&apos;s memorable moments</p>
               </div>
+
               <div className="flex items-start space-x-3">
-                <span className="text-edboard-accent text-2xl">✦</span>
-                <p className="text-foreground/80">Build a network with creative minds across departments</p>
+                <span className="text-[#E3D5B3] text-xl">✦</span>
+                <p>Build a network with creative minds across departments</p>
               </div>
             </div>
-            <a 
+
+            <a
               href="https://www.instagram.com/mit.edboard?igsh=bmxmaGk0cWJ2ankz"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-edboard-accent text-white font-medium px-6 py-3 rounded-md shadow-md hover:shadow-lg hover:shadow-edboard-accent/20 transition-all transform hover:-translate-y-1"
+              className="
+                inline-block
+                px-8 py-3 rounded-md
+                border-2 border-[#E3D5B3]/50
+                bg-black/25
+                text-[#E3D5B3]
+                font-['Playfair_Display']
+                shadow-[0_10px_30px_rgba(0,0,0,0.45)]
+                hover:border-[#E3D5B3]/85 hover:bg-black/35
+                transition
+              "
             >
               Explore More
             </a>
           </div>
 
-          {/* Right side - Form */}
+          {/* Right side form */}
           <div className="appear-on-scroll">
-            <h2 className="text-3xl font-bold mb-6">
-              <span className="fancy-underline">Share Your Ideas</span>
+            <h2 className="font-['Cinzel'] text-[#E3D5B3] uppercase tracking-[0.08em] text-3xl md:text-4xl mb-8">
+              Share Your Ideas
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
+
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6 bg-black/40 border border-[#E3D5B3]/20 rounded-xl p-8 shadow-[0_12px_40px_rgba(0,0,0,0.45)]"
+            >
               <div>
-                <label htmlFor="name" className="block text-foreground/80 mb-2">Name</label>
+                <label className="block font-['Playfair_Display'] text-[#C2B59B] mb-2">
+                  Name
+                </label>
                 <input
                   type="text"
-                  id="name"
                   value={formData.Name}
-                  onChange={(e) => setFormData({ ...formData, Name: e.target.value })}
-                  className="w-full px-4 py-2 rounded-md bg-card border border-border focus:border-edboard-accent focus:outline-none text-white"
+                  onChange={(e) =>
+                    setFormData({ ...formData, Name: e.target.value })
+                  }
+                  className="
+                    w-full px-4 py-3 rounded-md
+                    bg-black/40 border border-[#E3D5B3]/25
+                    text-[#E3D5B3]
+                    font-['Playfair_Display']
+                    focus:outline-none focus:ring-2 focus:ring-[#E3D5B3]/40
+                  "
                   required
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="email" className="block text-foreground/80 mb-2">Email</label>
+                <label className="block font-['Playfair_Display'] text-[#C2B59B] mb-2">
+                  Email
+                </label>
                 <input
                   type="email"
-                  id="email"
                   value={formData.Email}
-                  onChange={(e) => setFormData({ ...formData, Email: e.target.value })}
-                  className="w-full px-4 py-2 rounded-md bg-card border border-border focus:border-edboard-accent focus:outline-none text-white"
+                  onChange={(e) =>
+                    setFormData({ ...formData, Email: e.target.value })
+                  }
+                  className="
+                    w-full px-4 py-3 rounded-md
+                    bg-black/40 border border-[#E3D5B3]/25
+                    text-[#E3D5B3]
+                    font-['Playfair_Display']
+                    focus:outline-none focus:ring-2 focus:ring-[#E3D5B3]/40
+                  "
                   required
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="idea" className="block text-foreground/80 mb-2">Your Idea</label>
+                <label className="block font-['Playfair_Display'] text-[#C2B59B] mb-2">
+                  Your Idea
+                </label>
                 <textarea
-                  id="idea"
                   value={formData.Idea}
-                  onChange={(e) => setFormData({ ...formData, Idea: e.target.value })}
-                  className="w-full px-4 py-2 rounded-md bg-card border border-border focus:border-edboard-accent focus:outline-none h-32 text-white"
+                  onChange={(e) =>
+                    setFormData({ ...formData, Idea: e.target.value })
+                  }
+                  className="
+                    w-full px-4 py-3 rounded-md h-32
+                    bg-black/40 border border-[#E3D5B3]/25
+                    text-[#E3D5B3]
+                    font-['Playfair_Display']
+                    focus:outline-none focus:ring-2 focus:ring-[#E3D5B3]/40
+                  "
                   required
                 />
               </div>
-              
+
               <button
                 type="submit"
-                className="w-full bg-edboard-accent text-white font-medium px-6 py-3 rounded-md shadow-md hover:shadow-lg hover:shadow-edboard-accent/20 transition-all transform hover:-translate-y-1"
+                className="
+                  w-full
+                  px-6 py-3 rounded-md
+                  border-2 border-[#E3D5B3]/50
+                  bg-black/25
+                  text-[#E3D5B3]
+                  font-['Playfair_Display']
+                  shadow-[0_10px_30px_rgba(0,0,0,0.45)]
+                  hover:border-[#E3D5B3]/85 hover:bg-black/35
+                  transition
+                "
               >
                 Submit Your Idea
               </button>

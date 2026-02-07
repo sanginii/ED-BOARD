@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { BookOpen, Download, Calendar } from 'lucide-react';
-import YearbookCard from '@/components/YearbookCard';
-import Navbar from '@/components/Navbar';
-import { yearbooksData } from '@/data/YearbookData';
-import Footer from '@/components/Footer';
+import { useState, useEffect } from "react";
+import { BookOpen, Download, Calendar } from "lucide-react";
+import YearbookCard from "@/components/YearbookCard";
+import Navbar from "@/components/Navbar";
+import { yearbooksData } from "@/data/YearbookData";
+import Footer from "@/components/Footer";
 
 const Yearbook = () => {
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
@@ -12,100 +12,79 @@ const Yearbook = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
+          if (entry.isIntersecting) entry.target.classList.add("visible");
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
-    const elements = document.querySelectorAll('.appear-on-scroll');
+
+    const elements = document.querySelectorAll(".appear-on-scroll");
     elements.forEach((el) => observer.observe(el));
+
     return () => {
       elements.forEach((el) => observer.unobserve(el));
     };
   }, []);
 
-  const filteredYearbooks = selectedYear 
-    ? yearbooksData.filter(yearbook => yearbook.year === selectedYear)
+  const filteredYearbooks = selectedYear
+    ? yearbooksData.filter((yearbook) => yearbook.year === selectedYear)
     : yearbooksData;
 
   return (
-    // <div className="min-h-screen bg-background">
-    <div className="min-h-screen relative">
-
+    <div className="min-h-screen relative bg-black text-[#C2B59B] overflow-hidden">
       <Navbar />
-      
-      {/* Animated Background
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 opacity-10">
-          {[...Array(50)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`
-              }}
-            />
-          ))}
-        </div>
-      </div> */}
 
-        {/* Background Photo with Deep Blue Overlay */}
-        <div aria-hidden className="fixed inset-0 z-0 pointer-events-none">
-        {/* Base background image (15% opacity) */}
+      {/* Background texture + vignette */}
+      <div aria-hidden className="fixed inset-0 z-0 pointer-events-none">
         <div
-        className="absolute inset-0 bg-center bg-cover opacity-80"
-        style={{ backgroundImage: "url('/photo.png')" }}
+          className="absolute inset-0 bg-center bg-cover opacity-25"
+          style={{ backgroundImage: "url('/photo.png')" }}
         />
-        {/* Deep dark-blue overlay */}
-       <div
-      className="absolute inset-0"
-        style={{ backgroundColor: '#00001c', opacity: 0.6 }}
-        />
-        </div>
+        <div className="absolute inset-0 bg-black/75" />
+        <div className="absolute inset-0 shadow-[inset_0_0_260px_rgba(0,0,0,0.95)]" />
+      </div>
 
-
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 appear-on-scroll">
+      {/* Hero */}
+      <section className="relative z-10 pt-32 pb-16 px-6 appear-on-scroll">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8 appear-on-scroll">
-            <BookOpen className="w-5 h-5 text-cyan-400" />
-            <span className="text-white/80 text-sm font-medium">Digital Archive</span>
+          <div className="inline-flex items-center gap-3 rounded-full px-6 py-3 mb-8 border border-[#E3D5B3]/25 bg-black/40 backdrop-blur-sm appear-on-scroll">
+            <BookOpen className="w-5 h-5 text-[#E3D5B3]" />
+            <span className="font-['Playfair_Display'] text-[#C2B59B] text-sm">
+              Digital Archive
+            </span>
           </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent appear-on-scroll">
+
+          <h1 className="font-['Cinzel'] text-[#E3D5B3] uppercase tracking-[0.10em] text-4xl sm:text-5xl md:text-7xl mb-6 appear-on-scroll">
             MIT YEARBOOKS
           </h1>
-          
-          <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-4xl mx-auto leading-relaxed appear-on-scroll">
-            Journey through time with our digital yearbook collection. Each edition captures the spirit, 
-            achievements, and memories of our vibrant MIT community.
+
+          <p className="font-['Playfair_Display'] text-[#C2B59B] text-lg md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed appear-on-scroll">
+            Journey through time with our digital yearbook collection. Each
+            edition captures the spirit, achievements, and memories of our
+            vibrant MIT community.
           </p>
 
           {/* Year Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-16 appear-on-scroll">
+          <div className="flex flex-wrap justify-center gap-3 mb-10 appear-on-scroll">
             <button
               onClick={() => setSelectedYear(null)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              className={`px-6 py-3 rounded-full font-['Playfair_Display'] transition-all duration-200 border ${
                 selectedYear === null
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
-                  : 'bg-white/10 text-white/70 hover:bg-white/20'
+                  ? "border-[#E3D5B3]/70 text-[#E3D5B3] bg-black/55"
+                  : "border-[#E3D5B3]/25 text-[#C2B59B] bg-black/30 hover:border-[#E3D5B3]/50"
               }`}
             >
               All Years
             </button>
+
             {yearbooksData.map((yearbook) => (
               <button
                 key={yearbook.year}
                 onClick={() => setSelectedYear(yearbook.year)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                className={`px-6 py-3 rounded-full font-['Playfair_Display'] transition-all duration-200 border ${
                   selectedYear === yearbook.year
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
-                    : 'bg-white/10 text-white/70 hover:bg-white/20'
+                    ? "border-[#E3D5B3]/70 text-[#E3D5B3] bg-black/55"
+                    : "border-[#E3D5B3]/25 text-[#C2B59B] bg-black/30 hover:border-[#E3D5B3]/50"
                 }`}
               >
                 {yearbook.year}
@@ -115,51 +94,60 @@ const Yearbook = () => {
         </div>
       </section>
 
-      {/* Yearbooks Grid */}
-      <section className="pb-20 px-6 appear-on-scroll">
+      {/* Grid */}
+      <section className="relative z-10 pb-20 px-6 appear-on-scroll">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {filteredYearbooks.map((yearbook, index) => (
-              <YearbookCard
-                key={yearbook.year}
-                yearbook={yearbook}
-                index={index}
-              />
+              <YearbookCard key={yearbook.year} yearbook={yearbook} index={index} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 px-6 border-t border-white/10 appear-on-scroll">
+      {/* Stats */}
+      <section className="relative z-10 py-20 px-6 border-t border-[#E3D5B3]/15 appear-on-scroll">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="group appear-on-scroll">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <BookOpen className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-[#E3D5B3]/30 bg-black/40 backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
+                <BookOpen className="w-8 h-8 text-[#E3D5B3]" />
               </div>
-              <h3 className="text-3xl font-bold text-white mb-2">{yearbooksData.length}</h3>
-              <p className="text-white/60">Digital Yearbooks</p>
+              <h3 className="font-['Cinzel'] text-[#E3D5B3] text-3xl mb-2">
+                {yearbooksData.length}
+              </h3>
+              <p className="font-['Playfair_Display'] text-[#C2B59B]/80">
+                Digital Yearbooks
+              </p>
             </div>
-            
+
             <div className="group appear-on-scroll">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Calendar className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-[#E3D5B3]/30 bg-black/40 backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
+                <Calendar className="w-8 h-8 text-[#E3D5B3]" />
               </div>
-              <h3 className="text-3xl font-bold text-white mb-2">4+</h3>
-              <p className="text-white/60">Years Archived</p>
+              <h3 className="font-['Cinzel'] text-[#E3D5B3] text-3xl mb-2">
+                4+
+              </h3>
+              <p className="font-['Playfair_Display'] text-[#C2B59B]/80">
+                Years Archived
+              </p>
             </div>
-            
+
             <div className="group appear-on-scroll">
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Download className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-[#E3D5B3]/30 bg-black/40 backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
+                <Download className="w-8 h-8 text-[#E3D5B3]" />
               </div>
-              <h3 className="text-3xl font-bold text-white mb-2">1000+</h3>
-              <p className="text-white/60">Downloads</p>
+              <h3 className="font-['Cinzel'] text-[#E3D5B3] text-3xl mb-2">
+                1000+
+              </h3>
+              <p className="font-['Playfair_Display'] text-[#C2B59B]/80">
+                Downloads
+              </p>
             </div>
           </div>
         </div>
       </section>
+
       <Footer />
     </div>
   );

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { X, Sparkles, BookOpen } from "lucide-react";
+import { X, BookOpen } from "lucide-react";
 
 const FORM_URL = "https://forms.gle/sArbt8gRsbtpXda86";
 
-// ⬇️ CONFIG — change these only
-const INITIAL_DELAY = 4_500;  // ms → first appearance
-const REOPEN_DELAY  = 30_000; // ms → reopen after dismiss
+// timing
+const INITIAL_DELAY = 60_500;
+const REOPEN_DELAY = 3000_000;
 const STORAGE_KEY = "mc_popup_last_closed";
 
 export default function ManagementCommitteePopup() {
@@ -15,15 +15,10 @@ export default function ManagementCommitteePopup() {
     const lastClosed = localStorage.getItem(STORAGE_KEY);
     const now = Date.now();
 
-    const shouldOpen =
-      !lastClosed || now - Number(lastClosed) > REOPEN_DELAY;
-
+    const shouldOpen = !lastClosed || now - Number(lastClosed) > REOPEN_DELAY;
     if (!shouldOpen) return;
 
-    const timer = setTimeout(() => {
-      setOpen(true);
-    }, INITIAL_DELAY);
-
+    const timer = setTimeout(() => setOpen(true), INITIAL_DELAY);
     return () => clearTimeout(timer);
   }, []);
 
@@ -31,72 +26,86 @@ export default function ManagementCommitteePopup() {
     localStorage.setItem(STORAGE_KEY, Date.now().toString());
     setOpen(false);
 
-    setTimeout(() => {
-      setOpen(true);
-    }, REOPEN_DELAY);
+    setTimeout(() => setOpen(true), REOPEN_DELAY);
   };
 
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
         onClick={closePopup}
       />
 
       {/* Modal */}
-      <div className="relative z-[101] w-[92%] max-w-md rounded-2xl
-        bg-gradient-to-br from-slate-900 via-slate-800/95 to-slate-900
-        border border-white/15 p-6 shadow-xl
-        animate-in fade-in zoom-in duration-200"
+      <div
+        className="
+          relative z-[101] w-full max-w-md
+          rounded-2xl overflow-hidden
+          border border-[#E3D5B3]/20
+          bg-black/70 backdrop-blur-sm
+          shadow-[0_18px_70px_rgba(0,0,0,0.75)]
+          animate-in fade-in zoom-in duration-200
+        "
       >
-        {/* Close Button */}
-        <button
-          onClick={closePopup}
-          className="absolute right-3 top-3 p-2 hover:bg-white/10 rounded-full"
-        >
-          <X className="h-5 w-5 text-white/80" />
-        </button>
+        {/* subtle vignette */}
+        <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_200px_rgba(0,0,0,0.85)]" />
 
-        {/* Header */}
-        <div className="flex items-center gap-3 mb-3">
-          <div className="h-10 w-10 flex items-center justify-center
-            bg-gradient-to-r from-blue-500 to-purple-500 rounded-full">
-            <Sparkles className="h-5 w-5 text-white" />
+        <div className="relative p-7">
+          {/* Close */}
+          <button
+            onClick={closePopup}
+            className="absolute right-3 top-3 p-2 rounded-full hover:bg-white/10 transition"
+            aria-label="Close"
+          >
+            <X className="h-5 w-5 text-[#E3D5B3]/80" />
+          </button>
+
+          {/* Header */}
+          <div className="mb-3">
+            <h3 className="font-['Cinzel'] text-[#E3D5B3] uppercase tracking-[0.08em] text-xl">
+              Working Committee Forms Open
+            </h3>
+            <div className="mt-3 h-[2px] w-16 bg-[#E3D5B3]/30 rounded-full" />
           </div>
-          <h3 className="text-xl font-semibold text-white">
-            Working Committee Forms Open!
-          </h3>
+
+          {/* Text */}
+          <p className="font-['Playfair_Display'] text-[#C2B59B] leading-relaxed mb-6">
+            Applications for the EdBoard Working Committee are now open.
+          </p>
+
+          {/* CTA */}
+          <a
+            href={FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closePopup}
+            className="
+              w-full inline-flex items-center justify-center gap-2
+              px-6 py-3 rounded-full
+              border-2 border-[#E3D5B3]/45
+              bg-black/25
+              text-[#E3D5B3]
+              font-['Playfair_Display'] font-semibold
+              shadow-[0_10px_30px_rgba(0,0,0,0.45)]
+              hover:border-[#E3D5B3]/80 hover:bg-black/35
+              transition
+            "
+          >
+            <BookOpen className="h-5 w-5" />
+            Apply Now
+          </a>
+
+          {/* Secondary */}
+          <button
+            onClick={closePopup}
+            className="w-full mt-3 text-sm font-['Playfair_Display'] text-[#C2B59B]/70 hover:text-[#E3D5B3] transition"
+          >
+            Maybe later
+          </button>
         </div>
-
-        {/* Text */}
-        <p className="text-sm text-white/80 mb-5">
-          Applications for the EdBoard Working Committee are now open.
-        </p>
-
-        {/* CTA */}
-        <a
-          href={FORM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={closePopup}
-          className="w-full inline-flex items-center justify-center gap-2
-            bg-white rounded-full px-5 py-3 font-medium text-slate-900
-            hover:bg-blue-100 transition"
-        >
-          <BookOpen className="h-5 w-5" />
-          Apply Now
-        </a>
-
-        {/* Secondary */}
-        <button
-          onClick={closePopup}
-          className="w-full text-xs text-white/60 mt-3 hover:text-white/80"
-        >
-          Maybe later
-        </button>
       </div>
     </div>
   );
