@@ -20,6 +20,16 @@ export interface YearbookData {
     theme: 'Reverie'
     },
     {
+      year: '2023-24',
+      title: 'MIT Yearbook 2023-24',
+      description: 'Reliving the memorable moments, accomplishments, and growth of the academic year 2023-24.',
+      coverImage: '/yearbookpic/2023-24.png',
+      pdfUrl: 'https://learnermanipal-my.sharepoint.com/:b:/g/personal/editorialboard_mit_manipal_edu/IQAL0vaCAH9QS4Vr7nrhWk_GAY3Dz3c3dVnZCspDHa24OfM?e=uwYkSt',
+      pages: 195,
+      theme: 'Karrunya'
+    },
+
+    {
       year: '2018-19',
       title: 'MIT Yearbook 2018-19',
       description: 'A journey through memories, achievements, and milestones of the academic year 2018-19.',
